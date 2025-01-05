@@ -6,9 +6,27 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class AppController {
 	
+	//First Create Controller mapping for each of the pages: home, admin/home and user/home
 	@GetMapping("/home")
-	public String home() {
-		return "home";
+	  public String handleWelcome() {
+	    return "home";
+	  }
+
+	  @GetMapping("/admin/home")
+	  public String handleAdminHome() {
+	    return "home_admin";
+	  }
+
+	  @GetMapping("/user/home")
+	  public String handleUserHome() {
+	    return "home_user";
+	  }
+
 	}
 
-}
+
+
+
+
+
+  
