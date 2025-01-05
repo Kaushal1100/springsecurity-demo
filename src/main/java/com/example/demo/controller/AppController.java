@@ -21,6 +21,11 @@ public class AppController {
 	  public String handleUserHome() {
 	    return "home_user";
 	  }
+	  
+	  @GetMapping("/login")
+	  public String handleLogin() {
+		  return "custom_login"; //same name as the fileName
+	  }
 
 	}
 

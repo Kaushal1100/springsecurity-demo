@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 import com.example.demo.service.MyUserDetailService;
 
@@ -32,8 +33,15 @@ public class SecurityConfiguration {
 	                    registry.requestMatchers("/user/**").hasRole("USER"); //Normal user
 	                    registry.anyRequest().authenticated(); //For other unspecified requests
 	                })
-	               .formLogin(formLogin-> formLogin.permitAll())
-	               .build();
+//	               .formLogin(formLogin-> formLogin.permitAll())
+//	               .build();
+	                .formLogin(httpSecurityFormLoginConfigurer -> {
+	                    httpSecurityFormLoginConfigurer
+	                            .loginPage("/login") //Provide a login page with endpoint- Then provide endpoint in the AppController
+//	                            .successHandler(new AuthenticationSuccessHandler())
+	                            .permitAll();
+	                })
+	                .build();
 	                
 	    }
 //	    @Bean
