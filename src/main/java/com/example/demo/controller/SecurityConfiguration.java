@@ -38,6 +38,7 @@ public class SecurityConfiguration {
 	                .formLogin(httpSecurityFormLoginConfigurer -> {
 	                    httpSecurityFormLoginConfigurer
 	                            .loginPage("/login") //Provide a login page with endpoint- Then provide endpoint in the AppController
+	                            //This is for what to do after login is successfull	                            
 //	                            .successHandler(new AuthenticationSuccessHandler())
 	                            .permitAll();
 	                })
